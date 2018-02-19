@@ -1,6 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -9,24 +8,39 @@ import { RegisterComponent } from './components/register/register.component';
 import { MyGalleriesComponent } from './components/my-galleries/my-galleries.component';
 import { CreateGalleryComponent } from './components/create-gallery/create-gallery.component';
 import { AllGalleriesComponent } from './components/all-galleries/all-galleries.component';
-import { AppRoutingModule } from './app-routing.module';
 
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: AllGalleriesComponent    
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'my-galleries',
+    component: MyGalleriesComponent
+  },
+  {
+    path: 'create',
+    component: CreateGalleryComponent
+  }
+]
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LayoutComponent,
-    LoginComponent,
-    RegisterComponent,
-    MyGalleriesComponent,
-    CreateGalleryComponent,
-    AllGalleriesComponent
-  ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot(
+      appRoutes
+    )
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    RouterModule
+  ],
+  declarations: []
 })
-export class AppModule { }
+export class AppRoutingModule { }
