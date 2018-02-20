@@ -6,3 +6,12 @@
   </div>
   <button type="submit" class="btn btn-primary">Filter</button>
 </form>
+
+<hr>
+<ul *ngFor='let gallery of galleries' class=bg-info>
+  <h2>Gallery Name: {{gallery.name}}</h2>
+  <p>Gallery Description: {{gallery.description}}</p>
+  <p>Gallery Images: {{gallery.images_url}}</p>
+  <p>Author: {{gallery.user_id}}</p>
+  <hr>
+</ul>
