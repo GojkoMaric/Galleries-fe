@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { MyGalleriesComponent } from './components/my-galleries/my-galleries.com
 import { CreateGalleryComponent } from './components/create-gallery/create-gallery.component';
 import { AllGalleriesComponent } from './components/all-galleries/all-galleries.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
+
 
 
 @NgModule({
@@ -24,7 +27,9 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

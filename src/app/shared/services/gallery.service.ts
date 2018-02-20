@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Gallery } from '../models/gallery.model';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class GalleryService {
 
   constructor(private http: HttpClient,
+              private authService: AuthService
   ) { }
 
   private galleries: Gallery[] = [];
