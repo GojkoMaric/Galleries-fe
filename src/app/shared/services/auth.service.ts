@@ -41,5 +41,11 @@ export class AuthService {
         return new HttpHeaders().set('Authorization', 'Bearer ' + window.localStorage.getItem('loginToken'));
     }
 
+    public logout(){
+        window.localStorage.removeItem('loginToken');
+        this.isAuthenticated = false;
+        this.router.navigateByUrl('/login');
+    }
+
 
 }

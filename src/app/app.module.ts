@@ -23,7 +23,7 @@ import { SharedModule } from './shared/shared.module';
     RegisterComponent,
     MyGalleriesComponent,
     CreateGalleryComponent,
-    AllGalleriesComponent
+    AllGalleriesComponent,
   ],
   imports: [
     BrowserModule,

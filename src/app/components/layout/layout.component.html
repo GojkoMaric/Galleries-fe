@@ -4,7 +4,7 @@
     <a class="navbar-brand" routerLink="/">All Galleries</a>
     <a class="navbar-brand" *ngIf="!auth.isAuthenticated" routerLink="/login">Login</a>
     <a class="navbar-brand" *ngIf="auth.isAuthenticated" routerLink="/register">Register</a>
-    <a class="navbar-brand" *ngIf="auth.isAuthenticated" routerLink="/logout">Logout</a>
+    <a class="navbar-brand" *ngIf="auth.isAuthenticated" (click)='auth.logout()'>Logout</a>
 </nav>
 
 <div class='containter'>
