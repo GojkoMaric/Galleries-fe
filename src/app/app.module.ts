@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
@@ -15,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { SingleGalleryComponent } from './components/single-gallery/single-gallery.component';
 import { SearchModule } from './search/search.module';
 import { SingleUserComponent } from './components/single-user/single-user.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -35,6 +35,7 @@ import { SingleUserComponent } from './components/single-user/single-user.compon
     SharedModule,
     FormsModule,
     SearchModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
