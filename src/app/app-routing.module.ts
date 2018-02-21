@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     path: 'galleries/:id',
     component: SingleGalleryComponent,
     resolve: {
-      resolve: GalleryResolver
+      gallery: GalleryResolver
     }
   }
 ]
