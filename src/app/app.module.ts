@@ -12,9 +12,8 @@ import { CreateGalleryComponent } from './components/create-gallery/create-galle
 import { AllGalleriesComponent } from './components/all-galleries/all-galleries.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { GalleryRowComponent } from './components/gallery-row/gallery-row.component';
 import { SingleGalleryComponent } from './components/single-gallery/single-gallery.component';
-
+import { SearchModule } from './search/search.module';
 
 
 @NgModule({
@@ -26,14 +25,14 @@ import { SingleGalleryComponent } from './components/single-gallery/single-galle
     MyGalleriesComponent,
     CreateGalleryComponent,
     AllGalleriesComponent,
-    GalleryRowComponent,
     SingleGalleryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    SearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

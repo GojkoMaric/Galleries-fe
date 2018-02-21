@@ -7,6 +7,11 @@
     <a class="navbar-brand" *ngIf="auth.isAuthenticated" (click)='auth.logout()'>Logout</a>
 </nav>
 
+<div class="nav-item bg-primary">
+  <h4>Filter Galleries</h4>
+  <app-search-input></app-search-input>
+</div>
+
 <div class='containter'>
   <router-outlet></router-outlet>
 </div>

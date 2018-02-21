@@ -1,3 +1,10 @@
-<p>
-  gallery-row works!
-</p>
+<h2>
+  <a routerLink='/galleries/{{gallery.id}}'>
+  Gallery Name: {{gallery.name}}
+</a>
+</h2>
+<p>Gallery Description: {{gallery.description}}</p>
+<img src="{{gallery.images_url}}" width='500px'>
+<p>Author: {{gallery.user_id}}</p>
+<hr>
+

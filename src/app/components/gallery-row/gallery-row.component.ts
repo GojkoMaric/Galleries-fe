@@ -1,10 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { Gallery } from '../../shared/models/gallery.model';
 
 @Component({
-  selector: 'app-gallery-row',
+  selector: '[galleryRow]',
   templateUrl: './gallery-row.component.html'
 })
 export class GalleryRowComponent implements OnInit {
+
+  private gallery: Gallery;
+
+  @Input()
+  set galleryRow(gallery: Gallery){
+    this.gallery = gallery;
+  }
 
   constructor() { }
 

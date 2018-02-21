@@ -1,0 +1,22 @@
+<form #searchForm="ngForm" (ngSubmit)="searchGallery()"  class="form-inline">
+  <div class="form-group row">
+      <div class="col-7">
+          <input
+              [(ngModel)]="searchName"
+              minlength="3"
+              required
+              #search="ngModel"
+              type="text"
+              name="searchName"
+              class="form-control">
+      </div>
+      <div class="col-1">
+          <button
+              type="submit"
+              [disabled]="!searchForm.valid"
+              class="btn btn-danger">Submit
+          </button>
+      </div>
+  </div>
+</form>
+
