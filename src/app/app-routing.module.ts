@@ -9,6 +9,8 @@ import { MyGalleriesComponent } from './components/my-galleries/my-galleries.com
 import { CreateGalleryComponent } from './components/create-gallery/create-gallery.component';
 import { AllGalleriesComponent } from './components/all-galleries/all-galleries.component';
 import { SearchPageGalleryComponent } from './search/components/search-page-gallery/search-page-gallery.component';
+import { SingleGalleryComponent } from './components/single-gallery/single-gallery.component';
+import { GalleryResolver } from './shared/resolvers/gallery.resolver';
 
 const appRoutes: Routes = [
   {
@@ -34,6 +36,13 @@ const appRoutes: Routes = [
   {
     path: 'galleries/search/:term',
     component: SearchPageGalleryComponent
+  },
+  {
+    path: 'galleries/:id',
+    component: SingleGalleryComponent,
+    resolve: {
+      resolve: GalleryResolver
+    }
   }
 ]
 

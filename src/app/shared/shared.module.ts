@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { GalleryRowComponent } from '../components/gallery-row/gallery-row.component';
 import { RouterModule, Routes } from '@angular/router';
+import { GalleryResolver } from './resolvers/gallery.resolver';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { RouterModule, Routes } from '@angular/router';
   ],
   providers: [
     GalleryService,
-    AuthService
+    AuthService,
+    GalleryResolver
   ],
   declarations: [
     GalleryRowComponent
