@@ -61,7 +61,7 @@ export class GalleryService {
             this.http.get('http://localhost:8000/api/galleries', {
                 params: params,
                 headers: this.authService.getRequestHeaders()
-            }).subscribe((galleries: any) => {
+            }).subscribe((galleries: any[]) => {
                 this.galleries = galleries;
                 // this.galleries = galleries.map((gallery) => {
                 //     return new Gallery(

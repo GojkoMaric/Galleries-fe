@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchPageGalleryComponent implements OnInit {
 
-  private galleries: Gallery[];
+  private galleries: Gallery[]=[];
   private term;
 
   constructor(private galleryService: GalleryService,

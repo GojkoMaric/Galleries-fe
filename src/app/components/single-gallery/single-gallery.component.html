@@ -1,8 +1,13 @@
-<!-- <p>
-  single-gallery works!
-</p>
-<p *ngIf="gallery">
-    {{gallery.description}}
 
-</p> -->
-<div class='bg-light' [galleryRow]='gallery'></div>
+<div class='bg-light'>
+  <h2>Gallery: {{gallery.name}}</h2>
+  <p>Description</p>
+  <p>{{gallery.description}}</p>
+  <div>
+    <p>Images:</p>
+    <img src="{{gallery.images_url}}" width="500px">
+  </div>
+</div>
+<!-- <div class='bg-light' [galleryRow]='gallery'></div> -->
+
+

@@ -1,13 +1,5 @@
-<h2>
-  <a routerLink='/galleries/{{gallery.id}}'>
-  Gallery Name: {{gallery.name}}
-</a>
-</h2>
-<p>Gallery Description: {{gallery.description}}</p>
+<h2><a routerLink='/galleries/{{gallery.id}}'>Gallery Name: {{gallery.name}}</a></h2>
 <img src="{{gallery.images_url}}" width='500px'>
-<p>Author: {{gallery.user_id}}</p>
+<h3>Author: <a routerLink='/authors'>{{gallery.user.first_name}} {{gallery.user.last_name}}</a></h3> 
 <p>Created: {{gallery.created_at}}</p>
-<p>user: <a routerLink='/authors'>{{gallery.user.first_name}} {{gallery.user.last_name}}</a></p> 
-<!-- <p>{{gallery.picture.id}}</p> -->
 <hr>
-
