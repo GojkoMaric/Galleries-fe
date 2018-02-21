@@ -9,9 +9,9 @@
 
 <hr>
 <ul *ngFor='let gallery of galleries' class=bg-info>
-  <h2>Gallery Name: {{gallery.name}}</h2>
+  <h2><a routerLink='/galleries/{{gallery.id}}'>Gallery Name: {{gallery.name}}</a></h2>
   <p>Gallery Description: {{gallery.description}}</p>
-  <p>Gallery Images: {{gallery.images_url}}</p>
+  <img src="{{gallery.images_url}}" width='500px'>
   <p>Author: {{gallery.user_id}}</p>
   <hr>
 </ul>

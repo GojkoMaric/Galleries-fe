@@ -12,6 +12,8 @@ import { CreateGalleryComponent } from './components/create-gallery/create-galle
 import { AllGalleriesComponent } from './components/all-galleries/all-galleries.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { GalleryRowComponent } from './components/gallery-row/gallery-row.component';
+import { SingleGalleryComponent } from './components/single-gallery/single-gallery.component';
 
 
 
@@ -24,6 +26,8 @@ import { SharedModule } from './shared/shared.module';
     MyGalleriesComponent,
     CreateGalleryComponent,
     AllGalleriesComponent,
+    GalleryRowComponent,
+    SingleGalleryComponent,
   ],
   imports: [
     BrowserModule,
