@@ -17,14 +17,16 @@ export class GalleryService {
             this.http.get('http://127.0.0.1:8000/api/galleries', {
                 headers: this.authService.getRequestHeaders()
             }).subscribe((galleries: any[]) => {
-                this.galleries = galleries.map((gallery) => {
-                    return new Gallery(
-                        gallery.id,
-                        gallery.name,
-                        gallery.description,
-                        gallery.images_url,
-                        gallery.user_id);
-                });
+                this.galleries = galleries;
+                // this.galleries = galleries.map((gallery) => {
+                //     return new Gallery(
+                //         gallery.id,
+                //         gallery.name,
+                //         gallery.description,
+                //         gallery.images_url,
+                //         gallery.user_id,
+                //         gallery.user);
+                // });
                 o.next(this.galleries);
                 return o.complete();
             });
@@ -36,13 +38,15 @@ export class GalleryService {
             this.http.get('http://127.0.0.1:8000/api/galleries/' + id, {
                 headers: this.authService.getRequestHeaders()
             }).subscribe((gallery: any) => {
-                let newGallery = new Gallery(
-                    gallery.id,
-                    gallery.name,
-                    gallery.description,
-                    gallery.images_url,
-                    gallery.user_id,
-                );
+                let newGallery = gallery;
+                // let newGallery = new Gallery(
+                //     gallery.id,
+                //     gallery.name,
+                //     gallery.description,
+                //     gallery.images_url,
+                //     gallery.user_id,
+                //     gallery.user,
+                // );
                 o.next(newGallery);
                 return o.complete();
             });
@@ -58,14 +62,16 @@ export class GalleryService {
                 params: params,
                 headers: this.authService.getRequestHeaders()
             }).subscribe((galleries: any) => {
-                this.galleries = galleries.map((gallery) => {
-                    return new Gallery(
-                        gallery.id,
-                        gallery.name,
-                        gallery.description,
-                        gallery.images_url,
-                        gallery.user_id);
-                });
+                this.galleries = galleries;
+                // this.galleries = galleries.map((gallery) => {
+                //     return new Gallery(
+                //         gallery.id,
+                //         gallery.name,
+                //         gallery.description,
+                //         gallery.images_url,
+                //         gallery.user_id,
+                //         gallery.user);
+                // });
                 o.next(this.galleries);
                 return o.complete();
             });

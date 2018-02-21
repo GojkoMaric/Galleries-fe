@@ -6,6 +6,8 @@
 <p>Gallery Description: {{gallery.description}}</p>
 <img src="{{gallery.images_url}}" width='500px'>
 <p>Author: {{gallery.user_id}}</p>
+<p>Created: {{gallery.created_at}}</p>
+<p>user: <a routerLink='/authors'>{{gallery.user.first_name}} {{gallery.user.last_name}}</a></p> 
 <!-- <p>{{gallery.picture.id}}</p> -->
 <hr>
 

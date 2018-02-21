@@ -15,6 +15,7 @@ import { SingleGalleryComponent } from './components/single-gallery/single-galle
 import { SearchModule } from './search/search.module';
 import { SingleUserComponent } from './components/single-user/single-user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CommentsListComponent } from './components/comments-list/comments-list.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AllGalleriesComponent,
     SingleGalleryComponent,
     SingleUserComponent,
+    CommentsListComponent,
   ],
   imports: [
     BrowserModule,
