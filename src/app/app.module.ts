@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { SingleGalleryComponent } from './components/single-gallery/single-gallery.component';
 import { SearchModule } from './search/search.module';
+import { SingleUserComponent } from './components/single-user/single-user.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { SearchModule } from './search/search.module';
     CreateGalleryComponent,
     AllGalleriesComponent,
     SingleGalleryComponent,
+    SingleUserComponent,
   ],
   imports: [
     BrowserModule,
