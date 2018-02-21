@@ -1,4 +1,4 @@
 <h3>Searched term: {{term}}</h3>
 <hr>
-<div class='bg-light' *ngFor='let gallery of galleries | paginate: { itemsPerPage: 2, currentPage: p }' [galleryRow]='gallery'></div>
+<div class='bg-light' *ngFor='let gallery of galleries | paginate: { itemsPerPage: 10, currentPage: p }' [galleryRow]='gallery'></div>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
