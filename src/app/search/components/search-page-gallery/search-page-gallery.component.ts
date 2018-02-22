@@ -22,8 +22,8 @@ export class SearchPageGalleryComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
         this.galleryService.searchGalleriesByTerm(params.term).subscribe(data => {
-            this.galleries = data;
-            this.term = params.term;
+          this.galleries = data;
+          this.term = params.term;
         });
     });
   }

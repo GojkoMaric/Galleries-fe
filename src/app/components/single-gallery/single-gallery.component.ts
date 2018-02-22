@@ -22,7 +22,7 @@ public ngOnInit() {
       .subscribe((data: { gallery: Gallery }) => {
           this.gallery = data.gallery;
       });
-}
+  }
 
-
+  
 }

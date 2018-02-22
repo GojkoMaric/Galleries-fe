@@ -12,6 +12,7 @@ import { SearchPageGalleryComponent } from './search/components/search-page-gall
 import { SingleGalleryComponent } from './components/single-gallery/single-gallery.component';
 import { GalleryResolver } from './shared/resolvers/gallery.resolver';
 import { SingleUserComponent } from './components/single-user/single-user.component';
+import { UserResolver } from './shared/resolvers/user.resolver';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +48,10 @@ const appRoutes: Routes = [
   },
   {
     path: 'authors/:id',
-    component: SingleUserComponent
+    component: SingleUserComponent,
+    resolve: {
+      gallery: UserResolver
+    }
   }
 ]
 

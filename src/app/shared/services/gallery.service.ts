@@ -78,5 +78,25 @@ export class GalleryService {
         });
     }
 
+    public getGalleryByUserId(id: number) {
+        return new Observable((o: Observer<any>) => {
+            this.http.get('http://127.0.0.1:8000/api/authors/' + id, {
+                headers: this.authService.getRequestHeaders()
+            }).subscribe((galleries: any[]) => {
+                this.galleries = galleries;
+                // let newGallery = new Gallery(
+                //     gallery.id,
+                //     gallery.name,
+                //     gallery.description,
+                //     gallery.images_url,
+                //     gallery.user_id,
+                //     gallery.user,
+                // );
+                o.next(this.galleries);
+                return o.complete();
+            });
+        });
+    }
+
 
 }
