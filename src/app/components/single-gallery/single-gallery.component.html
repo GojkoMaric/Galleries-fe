@@ -2,27 +2,27 @@
 <div class='bg-light'>
   <h2>Gallery: {{gallery.name}}</h2>
   <h2>Author: <a routerLink='/authors/{{gallery.user.id}}'>{{gallery.user.first_name}} {{gallery.user.last_name}}</a></h2>
-  <p>Description</p>
-  <p class='col-6'>{{gallery.description}}</p>
-  <div>
-    <p>Images:</p>
-    <img src="{{gallery.images_url}}" width="500px">
-  </div><br><br>
-
+  <div class='col-6 bg-info'>
+    <p>Description</p>
+    <p>{{gallery.description}}</p>
+</div>
   <h1>Images</h1>
   <div *ngFor='let picture of gallery.picture'>
     <img src="{{picture.images_url}}">
   </div>
 
   <h2>Comments List</h2>
-  <!-- <div *ngFor='let comment of comments'>
-    {{comment->content}}
-  </div> -->
+  <div *ngFor='let comment of gallery.comments'>
+    <div class='bg-info col-6'>
+      <p>{{comment.content}}</p>
+      <hr>
+    </div>
+  </div>
 
 
   <h2>Add New Comment</h2>
   <form action="">
-    <textarea name="content" cols="30" rows="10"></textarea>
+    <textarea name="content" cols="70" rows="10"></textarea>
 
     <button class='btn btn-primary'>Add Comment</button>
   </form>

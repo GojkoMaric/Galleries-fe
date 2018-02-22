@@ -31,7 +31,9 @@ export class AuthService {
                     return o.complete();
                 },
                 (err) => {
-                    return o.error(err);
+                    return alert(`
+                    Your login action has failed.
+                    Please try again to login.`);
                 }
                 );
         });

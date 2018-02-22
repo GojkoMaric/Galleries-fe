@@ -98,5 +98,33 @@ export class GalleryService {
         });
     }
 
+    public addGallery(gallery: Gallery) {
+        return new Observable((o: Observer<any>) => {
+            this.http.post('http://localhost:8000/api/galleries', {
+                name: gallery.name,
+                description: gallery.description,
+                images_url: gallery.images_url,
+                user_id: gallery.user_id
+            }, {
+                    headers: this.authService.getRequestHeaders()
+                }).subscribe((galleries: any) => {
+                    this.galleries = galleries;
+                    // const gallery = new Gallery(
+                    //     galleries.name,
+                    //     galleries.director,
+                    //     galleries.image_url,
+                    //     galleries.duration,
+                    //     galleries.release_date,
+                    //     galleries.genres);
+                    // this.galleries.push(gallery);
+                    o.next(this.galleries);
+                    return o.complete();
+                }, (err: HttpErrorResponse) => {
+                    alert(`Backend returned code ${err.status} with message: ${err.error}`);
+                }
+            );
+        });
+    }
+
 
 }

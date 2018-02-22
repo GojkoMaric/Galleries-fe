@@ -16,22 +16,12 @@ export class SingleUserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private galleryService: GalleryService) {
-}
+  }
 
-public ngOnInit() {
-
-  // this.route.data
-  //     .subscribe((data: { gallery: Gallery[] }) => {
-  //       this.galleries = data.gallery;
-  //       console.log('aaaa', this.galleries);
-  //     });
-    
-      this.galleryService.getGalleryByUserId(7).subscribe(data => {
-              this.galleries = data;
-              console.log('bbbb',this.galleries);
-          });
-
-
+  public ngOnInit() {
+    this.galleryService.getGalleryByUserId(7).subscribe(data => {
+      this.galleries = data;
+    });
   }
 
 // all-galleries
