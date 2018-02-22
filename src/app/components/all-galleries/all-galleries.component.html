@@ -1,6 +1,6 @@
 <h2>All Galleries</h2>
 <div class='bg-light' [galleryRow]='gallery'
-*ngFor='let gallery of galleries | paginate: { itemsPerPage: 3, currentPage: p }'
+*ngFor='let gallery of galleries | paginate: { itemsPerPage: 10, currentPage: p }'
 ></div>
 
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
