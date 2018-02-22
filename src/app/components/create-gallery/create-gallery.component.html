@@ -1,17 +1,35 @@
-<form>
-    <h2>Register</h2>
+<form #galleryForm="ngForm" (ngSubmit)='submit(gallery)'>
+  
+    <h2>Create Gallery</h2>
+
     <div class="form-group">
-      <label for="first_name">Gallery Name</label>
-      <input type="text" class="form-control">
+      <label for="name">Gallery Name</label>
+      <input #name='ngModel' [(ngModel)]='gallery.name' name='name' type="text" class="form-control" 
+      required minlength="2" maxlength="255">
     </div>
+
     <div class="form-group">
-      <label for="first_name">Description</label>
-      <input type="text" class="form-control">
+      <label #description='ngModel' [(ngModel)]='gallery.description' for="description">Description</label>
+      <input type="text" class="form-control" maxlength="1000">
       </div>
-    <div class="form-group">
-      <label for="first_name">Pictures</label>
-      <input type="email" class="form-control">
+
+    <div class="form-group row">
+      <label for="pictures_url" class='col-12'>Picture URL</label>
+      <input type="text" class="form-control col-6" required>
+
+      <button type="button" class="btn btn-primary col">Move Up</button>      
+      <button type="button" class="btn btn-primary col">Move Down</button>
+      <div class='col-4'></div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <button type="submit" class="btn btn-primary">Cancel</button>
+    
+    <button type="button" class="btn btn-primary">Add another URL</button><br><br>
+
+    <div class='row'>
+      <button type="submit" class="btn btn-primary col-1"
+      [disabled]='galleryForm.valid'>Submit</button>
+      <div class='col'></div>
+      <button type="button" class="btn btn-danger col-1">Cancel</button>
+      <div class='col-9'></div>
+    </div>
+
   </form>

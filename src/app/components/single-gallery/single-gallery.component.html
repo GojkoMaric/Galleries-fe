@@ -1,13 +1,18 @@
 
 <div class='bg-light'>
   <h2>Gallery: {{gallery.name}}</h2>
+  <h2>Author: <a routerLink='/authors/{{gallery.user.id}}'>{{gallery.user.first_name}} {{gallery.user.last_name}}</a></h2>
   <p>Description</p>
-  <p>{{gallery.description}}</p>
+  <p class='col-6'>{{gallery.description}}</p>
   <div>
     <p>Images:</p>
     <img src="{{gallery.images_url}}" width="500px">
-  </div>
+  </div><br><br>
+
+  <h2>Comments List</h2>
+  <!-- <div *ngFor='let comment of comments'>
+    {{comment->content}}
+  </div> -->
+
+  <button class='btn btn-primary'>Add Comment</button>
 </div>
-<!-- <div class='bg-light' [galleryRow]='gallery'></div> -->
-
-

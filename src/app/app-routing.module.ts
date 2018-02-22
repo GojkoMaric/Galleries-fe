@@ -46,7 +46,7 @@ const appRoutes: Routes = [
     }
   },
   {
-    path: 'authors',
+    path: 'authors/:id',
     component: SingleUserComponent
   }
 ]
