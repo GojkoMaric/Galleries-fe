@@ -26,8 +26,8 @@ export class RegisterComponent implements OnInit {
 
         this.auth.register(this.user).
             subscribe((user) => {
-                this.router.navigateByUrl('/');
-
+                // this.router.navigateByUrl('/');
+                // console.log('sub u compon')
             }, (e) => {
                 let errorObjects = e.error.errors;
                 let arrayOfErrors = Object.keys(errorObjects).map(key => {
@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
         this.auth.login(this.user.email, this.user.password)
             .subscribe((token) => {
                 this.router.navigateByUrl('/');
+                // console.log('sub u login');
             });
     }
 }

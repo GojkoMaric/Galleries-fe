@@ -72,8 +72,9 @@ export class AuthService {
                 // 'password_confirmation': user.confirmPassword,
             }).subscribe(
                 (data: { token: string }) => {
-                    window.localStorage.setItem('loginToken', data.token);
+                    // console.log('subscribe u auth(regist)')
                     this.isAuthenticated = true;
+                    window.localStorage.setItem('loginToken', data.token);
 
                     o.next(data.token);
                     return o.complete();
