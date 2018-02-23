@@ -12,17 +12,44 @@ export class GalleryService {
     private galleries: Gallery[] = [];
     private gallery: Gallery[] = [];
     private comments: Comment[] = []
+    private take: number = 4;
 
   constructor(private http: HttpClient,
               private authService: AuthService
   ) { }
 
-    public getGalleries() {
+    // public getGalleries() {
+    //     return new Observable((o: Observer<any>) => {
+    //         this.http.get('http://127.0.0.1:8000/api/galleries', {
+    //             headers: this.authService.getRequestHeaders()
+    //         }).subscribe((galleries: any[]) => {
+    //             this.galleries = galleries;
+
+    //             // this.galleries = galleries.map((gallery) => {
+    //             //     return new Gallery(
+    //             //         gallery.id,
+    //             //         gallery.name,
+    //             //         gallery.description,
+    //             //         gallery.images_url,
+    //             //         gallery.user_id,
+    //             //         gallery.user);
+    //             // });
+    //             o.next(this.galleries);
+    //             return o.complete();
+    //         });
+    //     });
+    // }
+
+    public getGalleries(take) {
         return new Observable((o: Observer<any>) => {
+            let params = new HttpParams();
+            params = params.append('take', take);
             this.http.get('http://127.0.0.1:8000/api/galleries', {
+                params: params,
                 headers: this.authService.getRequestHeaders()
             }).subscribe((galleries: any[]) => {
                 this.galleries = galleries;
+
                 // this.galleries = galleries.map((gallery) => {
                 //     return new Gallery(
                 //         gallery.id,
@@ -38,8 +65,21 @@ export class GalleryService {
         });
     }
 
+    // public searchMoviesByTerm(term) {
+    //     return new Observable((o: Observer<any>) => {
+    //         let params = new HttpParams();
+    //         params = params.append('term', term);
+
+    //         this.http.get('http://localhost:8000/api/movies', {
+    //             params: params,
+    //             headers: this.authService.getRequestHeaders()
+    //         }).subscribe((movies: any) => {}}
+
+    // }
+
     public getGalleryById(id: number) {
         return new Observable((o: Observer<any>) => {
+            
             this.http.get('http://127.0.0.1:8000/api/galleries/' + id, {
                 headers: this.authService.getRequestHeaders()
             }).subscribe((gallery: any) => {
@@ -58,11 +98,10 @@ export class GalleryService {
         });
     }
 
-    public searchGalleriesByTerm(term) {
+    public searchGalleriesByTerm(term, take) {
         return new Observable((o: Observer<any>) => {
             let params = new HttpParams();
-            params = params.append('term', term);
-
+            params = params.append('term', term).append('take', take);
             this.http.get('http://localhost:8000/api/galleries', {
                 params: params,
                 headers: this.authService.getRequestHeaders()
@@ -83,9 +122,12 @@ export class GalleryService {
         });
     }
 
-    public getGalleryByUserId(id: number) {
+    public getGalleryByUserId(id: number, take) {
         return new Observable((o: Observer<any>) => {
+            let params = new HttpParams();
+            params = params.append('take', take);
             this.http.get('http://127.0.0.1:8000/api/authors/' + id, {
+                params: params,
                 headers: this.authService.getRequestHeaders()
             }).subscribe((galleries: any[]) => {
                 this.galleries = galleries;
@@ -195,6 +237,47 @@ export class GalleryService {
             );
         });
     }
+
+    public deleteGallery(id) {
+        return new Observable((o: Observer<any>) => {
+            this.http.delete('http://localhost:8000/api/galleries/' +id, {
+                headers: this.authService.getRequestHeaders()
+                }).subscribe((galleries: any) => {
+                    this.galleries=galleries;
+                    o.next(this.galleries);
+                    return o.complete();
+                }, (err: HttpErrorResponse) => {
+                    alert(`Backend returned code ${err.status} with message: ${err.error}`);
+                }
+            );
+        });
+    }
+
+
+    // public searchGalleriesByTerm(term) {
+    //     return new Observable((o: Observer<any>) => {
+    //         let params = new HttpParams();
+    //         params = params.append('term', term);
+
+    //         this.http.get('http://localhost:8000/api/galleries', {
+    //             params: params,
+    //             headers: this.authService.getRequestHeaders()
+    //         }).subscribe((galleries: any[]) => {
+    //             this.galleries = galleries;
+    //             // this.galleries = galleries.map((gallery) => {
+    //             //     return new Gallery(
+    //             //         gallery.id,
+    //             //         gallery.name,
+    //             //         gallery.description,
+    //             //         gallery.images_url,
+    //             //         gallery.user_id,
+    //             //         gallery.user);
+    //             // });
+    //             o.next(this.galleries);
+    //             return o.complete();
+    //         });
+    //     });
+    // }
 
 
 }

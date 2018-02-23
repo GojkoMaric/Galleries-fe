@@ -17,13 +17,13 @@ export class CreateGalleryComponent implements OnInit {
               public auth: AuthService) { }
 
   ngOnInit() {
-    let date=new Date();
-    console.log(date);
+    // let date=new Date();
+    // console.log(date);
   }
 
   public createGallery(){
     this.gallery.user_id=this.auth.user.id;
-    this.gallery.created_at='01-01-01';
+    // this.gallery.created_at='01-01-01';
     // this.gallery.created_at=new Date();
     this.galleryService.addGallery(this.gallery)
     .subscribe(() => {

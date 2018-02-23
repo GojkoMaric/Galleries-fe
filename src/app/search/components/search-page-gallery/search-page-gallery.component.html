@@ -1,4 +1,5 @@
 <h3>Searched term: {{term}}</h3>
 <hr>
-<div class='bg-light' *ngFor='let gallery of galleries | paginate: { itemsPerPage: 10, currentPage: p }' [galleryRow]='gallery'></div>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<div class='bg-light' *ngFor='let gallery of galleries' [galleryRow]='gallery'></div>
+<button (click)=loadMore() class='btn btn-primary'>Load More</button>
+<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->

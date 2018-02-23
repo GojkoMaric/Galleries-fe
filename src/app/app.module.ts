@@ -16,6 +16,7 @@ import { SearchModule } from './search/search.module';
 import { SingleUserComponent } from './components/single-user/single-user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CommentsListComponent } from './components/comments-list/comments-list.component';
+import { EditGalleryComponent } from './components/edit-gallery/edit-gallery.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CommentsListComponent } from './components/comments-list/comments-list.
     SingleGalleryComponent,
     SingleUserComponent,
     CommentsListComponent,
+    EditGalleryComponent,
   ],
   imports: [
     BrowserModule,

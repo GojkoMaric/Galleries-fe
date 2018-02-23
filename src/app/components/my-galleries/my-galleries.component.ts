@@ -12,17 +12,27 @@ import { AuthService } from "../../shared/services/auth.service";
 export class MyGalleriesComponent implements OnInit {
 
   private galleries: Gallery[]=[];
+  private take = 10;
 
   constructor(private galleryService: GalleryService,
               private auth: AuthService) { }
 
   ngOnInit() {
     // console.log('user id', this.auth.user.id);
-    this.galleryService.getGalleryByUserId(this.auth.user.id).subscribe(data => {
+    this.galleryService.getGalleryByUserId(this.auth.user.id, this.take).subscribe(data => {
       this.galleries = data;
   }, (err: HttpErrorResponse) => {
       alert(`Backend returned code ${err.status} with message: ${err.error}`);
   });
   }
+
+    public loadMore(){
+        this.take+=10;
+        this.galleryService.getGalleryByUserId(this.auth.user.id, this.take).subscribe(data => {
+            this.galleries = data;
+        }, (err: HttpErrorResponse) => {
+            alert(`Backend returned code ${err.status} with message: ${err.error}`);
+        });
+    }
 
 }

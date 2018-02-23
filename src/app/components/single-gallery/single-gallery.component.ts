@@ -16,11 +16,15 @@ export class SingleGalleryComponent implements OnInit {
   public comments: Comment[];
   public comment: Comment = new Comment();
   private params;
+  private textboxActive: boolean;
 
   constructor(
-    public route: ActivatedRoute,
-    public galleryService: GalleryService,
-    public auth: AuthService,) {
+    private route: ActivatedRoute,
+    private galleryService: GalleryService,
+    private auth: AuthService,
+    private router: Router) {
+
+    this.textboxActive=true;
 
     this.route.params.subscribe((params: Params) => {
       this.params = params;
@@ -54,6 +58,8 @@ export class SingleGalleryComponent implements OnInit {
     this.galleryService.addComment(this.comment).subscribe((data) => {
         this.comments=data;
     });
+
+    this.textboxActive= false;
   }
 
   deleteComment(c){
@@ -63,15 +69,22 @@ export class SingleGalleryComponent implements OnInit {
   } 
     this.galleryService.deleteComment(c).subscribe((data) => {
       this.comments=data;
+      // this.router.navigateByUrl('/galleries/'+this.auth.user.id);
+  });
+  }
+
+  deleteGallery(id){
+    let confirmation = confirm("Are you sure you want to delete this gallery?");
+    if (!confirmation) {
+      return;
+  } 
+    this.galleryService.deleteGallery(id).subscribe((data) => {
+      this.router.navigateByUrl('/my-galleries');
+      this.comments=data;
   });
   }
 
   public ngOnInit() {
   }
 
-  
-
-public myFunction() {
-    
-}
 }

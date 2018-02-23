@@ -13,6 +13,8 @@ import { SingleGalleryComponent } from './components/single-gallery/single-galle
 import { GalleryResolver } from './shared/resolvers/gallery.resolver';
 import { SingleUserComponent } from './components/single-user/single-user.component';
 import { UserResolver } from './shared/resolvers/user.resolver';
+import { EditGalleryComponent } from './components/edit-gallery/edit-gallery.component';
+
 
 const appRoutes: Routes = [
   {
@@ -52,6 +54,10 @@ const appRoutes: Routes = [
     resolve: {
       gallery: UserResolver
     }
+  },
+  {
+    path: 'edit-gallery/:id',
+    component: EditGalleryComponent,
   }
 ]
 

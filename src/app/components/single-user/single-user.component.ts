@@ -12,6 +12,7 @@ export class SingleUserComponent implements OnInit {
 
   public galleries: Gallery[];
   public params;
+  private take = 2;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,10 +24,19 @@ export class SingleUserComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.galleryService.getGalleryByUserId(this.params.id).subscribe(data => {
+    this.galleryService.getGalleryByUserId(this.params.id, this.take).subscribe(data => {
       this.galleries = data;
     },
     (err: HttpErrorResponse) => {
+        alert(`Backend returned code ${err.status} with message: ${err.error}`);
+    });
+  }
+
+  public loadMore(){
+    this.take+=10;
+    this.galleryService.getGalleryByUserId(this.params.id, this.take).subscribe(data => {
+        this.galleries = data;
+    }, (err: HttpErrorResponse) => {
         alert(`Backend returned code ${err.status} with message: ${err.error}`);
     });
   }
