@@ -12,7 +12,7 @@ export class SingleUserComponent implements OnInit {
 
   public galleries: Gallery[];
   public params;
-  private take = 2;
+  private take = 10;
 
   constructor(
     private route: ActivatedRoute,

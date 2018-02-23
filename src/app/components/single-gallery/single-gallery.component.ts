@@ -84,6 +84,11 @@ export class SingleGalleryComponent implements OnInit {
   });
   }
 
+  editGallery()
+  {
+    // this.router.navigateByUrl('/');
+  }
+
   public ngOnInit() {
   }
 

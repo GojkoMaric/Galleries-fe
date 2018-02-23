@@ -9,6 +9,9 @@
     <p>{{gallery.description}}</p>
 </div>
 <button *ngIf="gallery.user_id == auth.user.id" type="submit" (click)="deleteGallery(gallery.id)" class="btn btn-danger">Delete Gallery</button>
+<form *ngIf="gallery.user_id == auth.user.id" routerLink="/edit-gallery/{{gallery.id}}">
+  <button type="submit" class="btn btn-danger">Edit Gallery</button>
+</form>
 <!-- <img src="{{gallery.images_url}}"> -->
   <h1>Images</h1>
   <div *ngFor='let picture of gallery.picture'>

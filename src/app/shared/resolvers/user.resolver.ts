@@ -12,7 +12,8 @@ export class UserResolver implements Resolve<any> {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
         let userId = parseInt(route.paramMap.get('id'));
+        let take;
 
-        return this.galleryService.getGalleryByUserId(userId);
+        return this.galleryService.getGalleryByUserId(userId, take);
     }
 }
