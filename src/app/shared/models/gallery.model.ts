@@ -4,7 +4,7 @@ export class Gallery {
     public id: number;
     public name: string;
     public description: string;
-    public images_url: any[];
+    public images_url: any;
     public user_id: number;
     public user: any;
     public created_at: string;

@@ -13,6 +13,7 @@ export class SingleUserComponent implements OnInit {
   public galleries: Gallery[];
   public params;
   private take = 10;
+  public hasMore = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +35,7 @@ export class SingleUserComponent implements OnInit {
 
   public loadMore(){
     this.take+=10;
+    this.hasMore = this.galleries.length > this.take-1;
     this.galleryService.getGalleryByUserId(this.params.id, this.take).subscribe(data => {
         this.galleries = data;
     }, (err: HttpErrorResponse) => {

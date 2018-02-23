@@ -254,30 +254,33 @@ export class GalleryService {
     }
 
 
-    // public searchGalleriesByTerm(term) {
-    //     return new Observable((o: Observer<any>) => {
-    //         let params = new HttpParams();
-    //         params = params.append('term', term);
-
-    //         this.http.get('http://localhost:8000/api/galleries', {
-    //             params: params,
-    //             headers: this.authService.getRequestHeaders()
-    //         }).subscribe((galleries: any[]) => {
-    //             this.galleries = galleries;
-    //             // this.galleries = galleries.map((gallery) => {
-    //             //     return new Gallery(
-    //             //         gallery.id,
-    //             //         gallery.name,
-    //             //         gallery.description,
-    //             //         gallery.images_url,
-    //             //         gallery.user_id,
-    //             //         gallery.user);
-    //             // });
-    //             o.next(this.galleries);
-    //             return o.complete();
-    //         });
-    //     });
-    // }
+    public editGallery(gallery: Gallery) {
+        return new Observable((o: Observer<any>) => {
+            this.http.put('http://localhost:8000/api/galleries/' +gallery.id, {
+                name: gallery.name,
+                description: gallery.description,
+                images_url: gallery.images_url,
+                user_id: gallery.user_id
+            }, {
+                    headers: this.authService.getRequestHeaders()
+                }).subscribe((galleries: any) => {
+                    this.galleries = galleries;
+                    // const gallery = new Gallery(
+                    //     galleries.name,
+                    //     galleries.director,
+                    //     galleries.image_url,
+                    //     galleries.duration,
+                    //     galleries.release_date,
+                    //     galleries.genres);
+                    // this.galleries.push(gallery);
+                    o.next(this.galleries);
+                    return o.complete();
+                }, (err: HttpErrorResponse) => {
+                    alert(`Backend returned code ${err.status} with message: ${err.error}`);
+                }
+            );
+        });
+    }
 
 
 }

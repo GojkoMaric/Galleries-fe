@@ -10,6 +10,8 @@ import { GalleryRowComponent } from '../components/gallery-row/gallery-row.compo
 import { RouterModule, Routes } from '@angular/router';
 import { GalleryResolver } from './resolvers/gallery.resolver';
 import { UserResolver } from './resolvers/user.resolver';
+import { AuthGuard } from './guards/auth.guard';
+import { GuestGuard } from './guards/guest.guard';
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import { UserResolver } from './resolvers/user.resolver';
     AuthService,
     GalleryResolver,
     UserResolver,
+    AuthGuard,
+    GuestGuard
   ],
   declarations: [
     GalleryRowComponent

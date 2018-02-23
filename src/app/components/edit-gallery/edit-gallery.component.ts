@@ -24,11 +24,12 @@ export class EditGalleryComponent implements OnInit {
     }
 
 
-  public createGallery(){
+  public editGallery(){
     this.gallery.user_id=this.auth.user.id;
-    this.galleryService.addGallery(this.gallery)
+    this.gallery.id=this.params.id;
+    this.galleryService.editGallery(this.gallery)
       .subscribe(() => {
-        this.router.navigateByUrl('/my-galleries');
+        this.router.navigateByUrl('/galleries/'+this.gallery.id);
       });
     }
   

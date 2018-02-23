@@ -28,14 +28,31 @@
     </div>
     <button *ngIf="comment.user_id == auth.user.id" type="submit" (click)="deleteComment(comment.id)" class="btn btn-danger">Remove Comment</button>
   </div>
-
-  <div *ngIf='textboxActive'>
-    <h2>Add New Comment</h2>
-    <form #commentForm="ngForm" (ngSubmit)="addComment(comment);commentForm.reset()"> 
-      <div class="form-group">
-        <textarea [(ngModel)]="comment.content" name="content" cols="70" rows="10" required minlength="1" maxlength="1000"></textarea>
-      </div>
-      <button [disabled]="!commentForm.valid" class='btn btn-primary'>Add Comment</button>
-    </form>
+  <div *ngIf="auth.isAuthenticated">
+    <div *ngIf='textboxActive'>
+      <h2>Add New Comment</h2>
+      <form #commentForm="ngForm" (ngSubmit)="addComment(comment);commentForm.reset()" class='col-2'> 
+        <div class="form-group">
+          <textarea [(ngModel)]="comment.content" name="content" cols="70" rows="10" required minlength="1" maxlength="1000"></textarea>
+        </div>
+        <button [disabled]="!commentForm.valid" class='btn btn-primary'>Add Comment</button>
+      </form>
+    </div>
   </div>
 </div>
+
+<!-- <h2>carousel</h2>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" *ngFor='let picture of gallery.picture'>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{picture.images_url" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Third slide">
+      </div>
+    </div>
+  </div> -->

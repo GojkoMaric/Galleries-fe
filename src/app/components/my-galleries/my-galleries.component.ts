@@ -13,6 +13,7 @@ export class MyGalleriesComponent implements OnInit {
 
   private galleries: Gallery[]=[];
   private take = 10;
+  public hasMore = true;
 
   constructor(private galleryService: GalleryService,
               private auth: AuthService) { }
@@ -28,6 +29,7 @@ export class MyGalleriesComponent implements OnInit {
 
     public loadMore(){
         this.take+=10;
+        this.hasMore = this.galleries.length > this.take-1;
         this.galleryService.getGalleryByUserId(this.auth.user.id, this.take).subscribe(data => {
             this.galleries = data;
         }, (err: HttpErrorResponse) => {

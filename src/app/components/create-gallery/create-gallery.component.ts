@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Gallery } from '../../shared/models/gallery.model';
 import { GalleryService } from '../../shared/services/gallery.service';
 import { Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { AuthService } from '../../shared/services/auth.service';
 export class CreateGalleryComponent implements OnInit {
 
   public gallery: Gallery = new Gallery();
+  public el = document.createElement('input')
 
   constructor(private galleryService: GalleryService,
               private router: Router,
@@ -34,6 +35,7 @@ export class CreateGalleryComponent implements OnInit {
 
   public cancel(){
     this.router.navigateByUrl('/my-galleries');
+    // this.router.navigate(['/my-galleries']);
   }
 
 }

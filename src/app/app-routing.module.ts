@@ -14,7 +14,8 @@ import { GalleryResolver } from './shared/resolvers/gallery.resolver';
 import { SingleUserComponent } from './components/single-user/single-user.component';
 import { UserResolver } from './shared/resolvers/user.resolver';
 import { EditGalleryComponent } from './components/edit-gallery/edit-gallery.component';
-
+import { AuthGuard } from './shared/guards/auth.guard';
+import { GuestGuard } from './shared/guards/guest.guard';
 
 const appRoutes: Routes = [
   {
@@ -23,10 +24,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'login',
+    canActivate: [GuestGuard],
     component: LoginComponent
   },
   {
     path: 'register',
+    canActivate: [GuestGuard],
     component: RegisterComponent
   },
   {
@@ -57,6 +60,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'edit-gallery/:id',
+    canActivate: [AuthGuard],
     component: EditGalleryComponent,
   }
 ]

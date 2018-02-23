@@ -1,8 +1,11 @@
 <h2>All Galleries</h2>
+<div class='bg-warning' *ngIf='!galleries'>
+    No gallery to show
+</div>
 <div class='bg-light' [galleryRow]='gallery'
 *ngFor='let gallery of galleries'
 ></div>
 
-<button (click)=loadMore() class='btn btn-primary'>Load More</button>
+<button *ngIf='hasMore' (click)=loadMore() class='btn btn-primary'>Load More</button>
 
 <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
