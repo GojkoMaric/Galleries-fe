@@ -181,5 +181,20 @@ export class GalleryService {
         });
     }
 
+    public deleteComment(id) {
+        return new Observable((o: Observer<any>) => {
+            this.http.delete('http://localhost:8000/api/comments/' +id, {
+                headers: this.authService.getRequestHeaders()
+                }).subscribe((comments: any) => {
+                    this.comments=comments;
+                    o.next(this.comments);
+                    return o.complete();
+                }, (err: HttpErrorResponse) => {
+                    alert(`Backend returned code ${err.status} with message: ${err.error}`);
+                }
+            );
+        });
+    }
+
 
 }

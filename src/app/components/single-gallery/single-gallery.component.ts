@@ -56,6 +56,22 @@ export class SingleGalleryComponent implements OnInit {
     });
   }
 
+  deleteComment(c){
+    let confirmation = confirm("Are you sure you want to delete this comment?");
+    if (!confirmation) {
+      return;
+  } 
+    this.galleryService.deleteComment(c).subscribe((data) => {
+      this.comments=data;
+  });
+  }
+
   public ngOnInit() {
   }
+
+  
+
+public myFunction() {
+    
+}
 }

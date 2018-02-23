@@ -1,4 +1,4 @@
-
+<button (click)="myFunction()">Try it</button>
 <div class='bg-light'>
   <h2>Gallery: {{gallery.name}}</h2>
   <h2>Author: <a routerLink='/authors/{{gallery.user.id}}'>{{gallery.user.first_name}} {{gallery.user.last_name}}</a></h2>
@@ -24,13 +24,16 @@
       <p>{{comment.content}}</p>
       <hr>
     </div>
+
+    <button *ngIf="comment.user_id == auth.user.id" type="submit" (click)="deleteComment(comment.id)" class="btn btn-danger">Remove Comment</button>
+
   </div>
 
   <h2>Add New Comment</h2>
 
   <form #commentForm="ngForm" (ngSubmit)="addComment(comment);commentForm.reset()"> 
     <div class="form-group">
-      <textarea [(ngModel)]="comment.content" name="content" cols="70" rows="10" required minlength="3" maxlength="1000"></textarea>
+      <textarea [(ngModel)]="comment.content" name="content" cols="70" rows="10" required minlength="1" maxlength="1000"></textarea>
     </div>
     <button [disabled]="!commentForm.valid" class='btn btn-primary'>Add Comment</button>
   </form>
