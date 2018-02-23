@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { GalleryService } from '../../shared/services/gallery.service';
 import { Gallery } from '../../shared/models/gallery.model';
-
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-single-user',
@@ -11,16 +11,23 @@ import { Gallery } from '../../shared/models/gallery.model';
 export class SingleUserComponent implements OnInit {
 
   public galleries: Gallery[];
-  public userId;
+  public params;
 
   constructor(
     private route: ActivatedRoute,
     private galleryService: GalleryService) {
+
+      this.route.params.subscribe((params: Params) => {
+        this.params = params;
+    });
   }
 
   public ngOnInit() {
-    this.galleryService.getGalleryByUserId(7).subscribe(data => {
+    this.galleryService.getGalleryByUserId(this.params.id).subscribe(data => {
       this.galleries = data;
+    },
+    (err: HttpErrorResponse) => {
+        alert(`Backend returned code ${err.status} with message: ${err.error}`);
     });
   }
 
