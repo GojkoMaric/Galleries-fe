@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Gallery } from '../../shared/models/gallery.model';
 import { GalleryService } from '../../shared/services/gallery.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-create-gallery',
@@ -9,15 +10,17 @@ import { Router } from '@angular/router';
 })
 export class CreateGalleryComponent implements OnInit {
 
-  public gallery: Gallery;
+  public gallery: Gallery = new Gallery();
 
   constructor(private galleryService: GalleryService,
-              private router: Router) { }
+              private router: Router,
+              public auth: AuthService) { }
 
   ngOnInit() {
   }
 
-  public submit(){
+  public createGallery(){
+    this.gallery.user_id=this.auth.user.id;
     this.galleryService.addGallery(this.gallery)
     .subscribe(() => {
       this.router.navigateByUrl('/');
